@@ -1,0 +1,140 @@
+@import 'tailwindcss';
+@import '../../vendor/livewire/flux/dist/flux.css';
+
+@source '../views';
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../vendor/livewire/flux-pro/stubs/**/*.blade.php';
+@source '../../vendor/livewire/flux/stubs/**/*.blade.php';
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+    --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+
+    /* You'reHired Brand Colors */
+    --color-midnight-navy: #0f172a;
+    --color-electric-blue: #1e40af;
+    --color-electric-blue-light: #3b82f6;
+    --color-teal: #14b8a6;
+    --color-teal-light: #2dd4bf;
+    --color-slate-50: #f8fafc;
+    --color-slate-100: #f1f5f9;
+    --color-slate-200: #e2e8f0;
+    --color-slate-300: #cbd5e1;
+    --color-slate-400: #94a3b8;
+    --color-slate-500: #64748b;
+    --color-slate-600: #475569;
+    --color-slate-700: #334155;
+    --color-slate-800: #1e293b;
+    --color-amber-500: #f59e0b;
+    --color-amber-600: #d97706;
+
+    --color-zinc-50: #fafafa;
+    --color-zinc-100: #f5f5f5;
+    --color-zinc-200: #e5e5e5;
+    --color-zinc-300: #d4d4d4;
+    --color-zinc-400: #a3a3a3;
+    --color-zinc-500: #737373;
+    --color-zinc-600: #525252;
+    --color-zinc-700: #404040;
+    --color-zinc-800: #262626;
+    --color-zinc-900: #171717;
+    --color-zinc-950: #0a0a0a;
+
+    --color-accent: var(--color-neutral-800);
+    --color-accent-content: var(--color-neutral-800);
+    --color-accent-foreground: var(--color-white);
+}
+
+@layer theme {
+    .dark {
+        --color-accent: var(--color-white);
+        --color-accent-content: var(--color-white);
+        --color-accent-foreground: var(--color-neutral-800);
+    }
+}
+
+@layer base {
+
+    *,
+    ::after,
+    ::before,
+    ::backdrop,
+    ::file-selector-button {
+        border-color: var(--color-gray-200, currentColor);
+    }
+}
+
+[data-flux-field]:not(ui-radio, ui-checkbox) {
+    @apply grid gap-2;
+}
+
+[data-flux-label] {
+    @apply  !mb-0 !leading-tight;
+}
+
+input:focus[data-flux-control],
+textarea:focus[data-flux-control],
+select:focus[data-flux-control] {
+    @apply outline-hidden ring-2 ring-accent ring-offset-2 ring-offset-accent-foreground;
+}
+
+/* \[:where(&)\]:size-4 {
+    @apply size-4;
+} */
+
+/* You'reHired Custom Styles */
+@layer components {
+    /* Teal glow effect for focused inputs */
+    .input-teal-glow:focus {
+        @apply outline-none ring-2 ring-teal-500 ring-offset-2;
+        box-shadow: 0 0 0 3px rgba(20, 184, 166, 0.1), 0 0 20px rgba(20, 184, 166, 0.3);
+    }
+
+    /* Electric blue gradient button */
+    .btn-electric-blue {
+        background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
+        @apply text-white font-semibold py-3 px-6 rounded-2xl shadow-2xl transition-all duration-300;
+    }
+
+    .btn-electric-blue:hover {
+        box-shadow: 0 20px 25px -5px rgba(30, 64, 175, 0.3), 0 10px 10px -5px rgba(30, 64, 175, 0.2), 0 0 30px rgba(59, 130, 246, 0.4);
+        transform: translateY(-2px);
+    }
+
+    /* Role switcher pill */
+    .role-pill {
+        @apply px-6 py-2 rounded-full font-medium transition-all duration-300;
+    }
+
+    .role-pill-active {
+        @apply bg-teal-500 text-white shadow-lg;
+    }
+
+    .role-pill-inactive {
+        @apply text-slate-600 bg-transparent hover:bg-slate-100;
+    }
+
+    /* Password strength meter */
+    .strength-segment {
+        @apply h-1 rounded-full bg-slate-200 transition-all duration-300;
+    }
+
+    .strength-segment.active {
+        @apply bg-amber-500;
+    }
+
+    /* Card styling */
+    .auth-card {
+        @apply bg-white rounded-2xl p-8 shadow-2xl;
+    }
+
+    /* Input with checkmark */
+    .input-with-icon {
+        @apply relative;
+    }
+
+    .input-checkmark {
+        @apply absolute right-3 top-1/2 -translate-y-1/2 text-teal-500;
+    }
+}

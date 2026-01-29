@@ -1,0 +1,98 @@
+# Environment variables
+.env
+.env.backup
+.env.local
+.env.*.local
+
+# Composer
+/vendor/
+
+# NPM/Node.js
+/node_modules/
+/npm-debug.log*
+/yarn-debug.log*
+/yarn-error.log*
+/package-lock.json
+/yarn.lock
+
+# Laravel specific
+/bootstrap/cache/*
+!/bootstrap/cache/.gitkeep
+/storage/*.key
+/public/hot
+/public/storage
+/storage/logs/*.log
+/storage/framework/cache/data/*
+/storage/framework/sessions/*
+/storage/framework/views/*
+
+# PHPUnit
+/.phpunit.cache
+/.phpunit.result.cache
+/phpunit.xml
+/phpunit.xml.dist
+
+# IDEs and editors
+/.idea/
+/.vscode/
+/.atom/
+/.emacs.d/
+/.vim/
+/.vimrc
+/.sublime-project
+/.sublime-workspace
+/.fleet/
+/.nova/
+/.zed/
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+
+# Vagrant
+Homestead.json
+Homestead.yaml
+
+# Docker
+/docker-compose.override.yml
+
+# Logs
+*.log
+
+# Temporary files
+*.swp
+*.tmp
+*.temp
+*~
+
+# Database dumps
+*.sql
+*.sqlite
+
+# Build artifacts
+/public/build/
+/public/css/
+/public/js/
+
+# Cache
+*.cache
+.cache/
+
+# Testing
+/clover.xml
+/coverage/
+/phpspec/
+/_ide_helper.php
+/.phpstorm.meta.php
+
+# Auth
+/auth.json
+
+# Laravel Telescope
+/storage/telescope/
