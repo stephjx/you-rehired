@@ -4,9 +4,6 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
 Route::get('/', function () {
-    if (Auth::check()) {
-        return redirect()->route('dashboard');
-    }
     return view('welcome');
 })->name('home');
 
@@ -35,5 +32,11 @@ Route::get('dashboard', [App\Http\Controllers\DashboardController::class, 'index
 Route::get('jobseeker/dashboard', [App\Http\Controllers\DashboardController::class, 'index'])
     ->middleware(['auth:job_seeker', 'verified'])
     ->name('jobseeker.dashboard');
+
+// Role switching routes
+Route::middleware(['auth'])->group(function () {
+    Route::get('role/switch', [App\Http\Controllers\RoleSwitchController::class, 'showSwitchForm'])->name('role.switch.form');
+    Route::post('role/switch', [App\Http\Controllers\RoleSwitchController::class, 'switchRole'])->name('role.switch');
+});
 
 require __DIR__.'/settings.php';

@@ -61,7 +61,7 @@ class JobSeekerAuthController extends Controller
         // Log in the job seeker
         auth()->guard('job_seeker')->login($jobSeeker);
 
-        return redirect()->route('jobseeker.dashboard');
+        return redirect('/');
     }
 
     public function showJobSeekerLoginForm()
@@ -95,7 +95,7 @@ class JobSeekerAuthController extends Controller
         // Log in the job seeker
         auth()->guard('job_seeker')->login($jobSeeker, $request->remember);
 
-        return redirect()->intended(route('jobseeker.dashboard'));
+        return redirect()->intended('/');
     }
 
     public function logoutJobSeeker(Request $request)

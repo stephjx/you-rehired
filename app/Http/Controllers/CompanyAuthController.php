@@ -104,7 +104,7 @@ class CompanyAuthController extends Controller
         // Log in the user
         auth()->login($user);
 
-        return redirect()->route('dashboard');
+        return redirect('/');
     }
 
     public function showCompanyLoginForm()
@@ -144,6 +144,6 @@ class CompanyAuthController extends Controller
         // Log in the user
         auth()->login($user, $request->remember);
 
-        return redirect()->intended(route('dashboard'));
+        return redirect()->intended('/');
     }
 }

@@ -123,4 +123,22 @@ class User extends Authenticatable
         }
         return false;
     }
+
+    // Role switching helper methods
+    public function getCurrentRole()
+    {
+        $activeRoleId = session('active_role');
+        
+        if ($activeRoleId) {
+            return $this->roles()->where('id', $activeRoleId)->first();
+        }
+        
+        // Return first role if no active role is set
+        return $this->roles()->first();
+    }
+
+    public function setActiveRole($roleId)
+    {
+        session(['active_role' => $roleId]);
+    }
 }

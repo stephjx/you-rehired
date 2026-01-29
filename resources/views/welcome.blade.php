@@ -38,24 +38,19 @@
                     <span class="text-xl font-bold text-gray-900 tracking-tight">You'reHired</span>
                 </div>
                 
-                @if (Route::has('login'))
-                    <div class="flex items-center space-x-4">
-                        @auth
-                            <a href="{{ url('/dashboard') }}" class="text-gray-700 hover:text-gray-900 font-medium transition-colors duration-200">
-                                Dashboard
-                            </a>
-                        @else
-                            <div class="flex items-center space-x-3">
-                                <a href="{{ route('login') }}" class="text-gray-700 hover:text-gray-900 font-medium transition-colors duration-200">
-                                    Log in
-                                </a>
-                                <a href="{{ route('register') }}" class="bg-gradient-to-r from-teal-500 to-blue-600 text-white px-5 py-2 rounded-lg text-sm font-medium hover:shadow-md transition-all duration-200 transform hover:-translate-y-0.5">
-                                    Sign Up
-                                </a>
-                            </div>
-                        @endauth
-                    </div>
-                @endif
+                <div class="flex items-center space-x-6">
+                    <a href="{{ route('company.login.form') }}" class="text-gray-700 hover:text-gray-900 font-medium transition-colors duration-200">
+                        Log in
+                    </a>
+                    <a href="#features" class="text-gray-700 hover:text-gray-900 font-medium transition-colors duration-200">
+                        About
+                    </a>
+                    @if (Route::has('register'))
+                        <a href="{{ route('company.register.form') }}" class="bg-gradient-to-r from-teal-500 to-blue-600 text-white px-5 py-2 rounded-lg text-sm font-medium hover:shadow-md transition-all duration-200 transform hover:-translate-y-0.5">
+                            Sign Up
+                        </a>
+                    @endif
+                </div>
             </div>
         </nav>
 
