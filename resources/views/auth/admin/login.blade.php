@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Job Seeker Login - You'reHired</title>
+        <title>Admin Login - You'reHired</title>
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -24,45 +24,26 @@
                 <!-- Logo/Brand -->
                 <div class="text-center mb-8">
                     <a href="{{ route('home') }}" class="inline-flex items-center space-x-2 mb-6">
-                        <div class="w-10 h-10 bg-gradient-to-br from-teal-500 to-blue-600 rounded-lg flex items-center justify-center">
+                        <div class="w-10 h-10 bg-gradient-to-br from-purple-500 to-indigo-600 rounded-lg flex items-center justify-center">
                             <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
                             </svg>
                         </div>
-                        <span class="text-2xl font-bold text-slate-900">You'reHired</span>
+                        <span class="text-2xl font-bold text-slate-900">You'reHired Admin</span>
                     </a>
-                    <h1 class="text-3xl font-bold text-slate-900 mb-2">Job Seeker Portal</h1>
-                    <p class="text-slate-600">Find your next opportunity</p>
+                    <h1 class="text-3xl font-bold text-slate-900 mb-2">Admin Portal</h1>
+                    <p class="text-slate-600">Access the platform administration panel</p>
                 </div>
 
-                <!-- Role Switch Notice -->
-                <div class="mb-6 p-4 bg-teal-50 rounded-xl border border-teal-100">
-                    <div class="flex items-start">
-                        <div class="flex-shrink-0">
-                            <svg class="h-5 w-5 text-teal-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-                                <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
-                            </svg>
-                        </div>
-                        <div class="ml-3 flex-1">
-                            <p class="text-sm text-teal-700">
-                                <span class="font-medium">Looking to hire instead?</span>
-                                <a href="{{ route('company.login.form') }}" class="font-medium text-teal-600 hover:text-teal-800 underline ml-1">
-                                    Switch to Company Portal
-                                </a>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Job Seeker Login Card -->
+                <!-- Admin Login Card -->
                 <div class="auth-card">
-                    <form method="POST" action="{{ route('jobseeker.login') }}" class="space-y-5">
+                    <form method="POST" action="{{ route('admin.login') }}" class="space-y-5">
                         @csrf
 
                         <!-- Email Address -->
                         <div>
                             <label for="email" class="block text-sm font-medium text-slate-700 mb-2">
-                                Email Address
+                                Admin Email Address
                             </label>
                             <input 
                                 type="email" 
@@ -70,7 +51,7 @@
                                 name="email"
                                 value="{{ old('email') }}"
                                 class="w-full px-4 py-3 text-slate-900 rounded-2xl border-2 border-slate-300 focus:input-teal-glow transition-all duration-300 @error('email') border-red-500 @enderror"
-                                placeholder="john.doe@email.com"
+                                placeholder="admin@yourehired.com"
                                 required
                                 autofocus
                             >
@@ -97,38 +78,24 @@
                             @enderror
                         </div>
 
-                        <!-- Remember Me & Forgot Password -->
-                        <div class="flex items-center justify-between">
-                            <div class="flex items-center">
-                                <input 
-                                    type="checkbox" 
-                                    id="remember" 
-                                    name="remember"
-                                    class="w-4 h-4 rounded text-teal-500 focus:ring-teal-500"
-                                >
-                                <label for="remember" class="ml-2 text-sm text-slate-600">
-                                    Remember me
-                                </label>
-                            </div>
-                            
-                            <a href="{{ route('password.request') }}" class="text-sm font-medium text-teal-500 hover:text-teal-600 hover:underline">
-                                Forgot password?
-                            </a>
+                        <!-- Remember Me -->
+                        <div class="flex items-center">
+                            <input 
+                                type="checkbox" 
+                                id="remember" 
+                                name="remember"
+                                class="w-4 h-4 rounded text-teal-500 focus:ring-teal-500"
+                            >
+                            <label for="remember" class="ml-2 text-sm text-slate-600">
+                                Remember me
+                            </label>
                         </div>
 
                         <!-- Login Button -->
                         <button type="submit" class="btn-electric-blue w-full">
-                            Log in to Dashboard
+                            Log in to Admin Panel
                         </button>
                     </form>
-
-                    <!-- Sign up link -->
-                    <div class="mt-6 text-center">
-                        <span class="text-sm text-slate-500">Don't have an account?</span>
-                        <a href="{{ route('jobseeker.register.form') }}" class="text-sm font-medium text-teal-500 ml-1 hover:text-teal-600 hover:underline">
-                            Create account
-                        </a>
-                    </div>
                 </div>
 
                 <!-- Back to home -->

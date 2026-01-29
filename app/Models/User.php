@@ -141,4 +141,15 @@ class User extends Authenticatable
     {
         session(['active_role' => $roleId]);
     }
+
+    // Admin role checks
+    public function isAdmin(): bool
+    {
+        return $this->hasRole('admin') || $this->hasRole('super-admin');
+    }
+
+    public function isSuperAdmin(): bool
+    {
+        return $this->hasRole('super-admin') || $this->email === env('SUPER_ADMIN_EMAIL');
+    }
 }

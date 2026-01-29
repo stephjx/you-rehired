@@ -11,6 +11,15 @@
     </head>
     <body class="antialiased font-sans bg-gradient-to-br from-slate-50 via-blue-50 to-teal-50">
         <div class="min-h-screen flex items-center justify-center px-4 py-12">
+            <!-- Top Left Back to Home Link -->
+            <div class="absolute top-4 left-4">
+                <a href="{{ route('home') }}" class="inline-flex items-center text-slate-600 hover:text-slate-800 text-sm font-medium">
+                    <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+                    </svg>
+                    Back to home
+                </a>
+            </div>
             <div class="w-full max-w-md">
                 <!-- Logo/Brand -->
                 <div class="text-center mb-8">
