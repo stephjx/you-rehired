@@ -190,8 +190,9 @@
 
                     <a href="#features"
                        id="learn-more-btn"
-                       class="px-8 py-4 rounded-xl font-semibold border border-gray-300 text-gray-700 hover:bg-gray-100 hover:shadow-md transition duration-300 filter hover:grayscale">
-                        Learn More
+                       class="px-8 py-4 rounded-xl font-semibold border border-gray-300 text-gray-700 hover:bg-gray-50 transition duration-300 relative overflow-hidden group">
+                        <span class="relative z-10">Learn More</span>
+                        <span class="absolute inset-0 bg-gradient-to-r from-teal-500/10 to-blue-600/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl"></span>
                     </a>
 
                 </div>
